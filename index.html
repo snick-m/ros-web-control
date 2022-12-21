@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROS JS PubSub Demo</title>
+
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        form>div.container>div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 5px;
+        }
+
+        label {
+            margin: 5px;
+        }
+
+        input[type=submit] {
+            margin: 10px;
+            padding: 5px 50px;
+        }
+
+        #controlKeys, #scienceData {
+            margin: 0 0 10px;
+            padding: 5px 50px;
+        }
+    </style>
+</head>
+
+<!-- 1. Use of words
+2. Use Transitional
+3. Diversify Cue Card
+4. Follow up Format
+5. Justification in Follow up
+6. Relevancy of the answers -->
+
+<body>
+    <!-- Form to send Twist message to ROS -->
+
+    <div class="container">
+        <form id="control-form">
+            <div class="container">
+                <div>
+                    <label for="linearx">Linear X</label>
+                    <input type="number" id="linearx" name="linear" value="0.0" step="0.01" min="-2.0" max="2.0">
+
+                    <label for="lineary">Linear Y</label>
+                    <input type="number" id="lineary" name="linear" value="0.0" step="0.01" min="-2.0" max="2.0">
+
+                    <label for="linearz">Linear Z</label>
+                    <input type="number" id="linearz" name="linear" value="0.0" step="0.01" min="-2.0" max="2.0">
+                </div>
+                <div>
+                    <label for="angularx">Angular X</label>
+                    <input type="number" id="angularx" name="angular" value="0.0" step="0.01" min="-1.0" max="1.0">
+
+                    <label for="angulary">Angular Y</label>
+                    <input type="number" id="angulary" name="angular" value="0.0" step="0.01" min="-1.0" max="1.0">
+
+                    <label for="angularz">Angular Z</label>
+                    <input type="number" id="angularz" name="angular" value="0.0" step="0.01" min="-1.0" max="1.0">
+                </div>
+            </div>
+            <input type="submit" value="Send">
+            <div id="controlKeys" >( )</div>
+            <div id="scienceData" >Science Data: 00 00 00 00 00 00</div>
+            <img src="http://localhost:8080/stream?topic=/usb_cam/image_raw" />
+        </form>
+    </div>
+
+    <script type="text/javascript"
+        src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+    <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
